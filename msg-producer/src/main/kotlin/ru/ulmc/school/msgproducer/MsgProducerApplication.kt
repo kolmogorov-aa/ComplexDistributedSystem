@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
 	runApplication<MsgProducerApplication>(*args)
 }
 
-@SpringBootConfiguration
+@Configuration
 class ArtemisConfig : ArtemisConfigurationCustomizer {
 	override fun customize(configuration: org.apache.activemq.artemis.core.config.Configuration) {
 		configuration.addConnectorConfiguration("nettyConnector", TransportConfiguration(NettyConnectorFactory::class.java.name))

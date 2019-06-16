@@ -11,10 +11,10 @@ import ru.ulmc.school.api.entity.TweetMsg
 class TweetPublisher @Autowired constructor(private val jmsTemplate: JmsTemplate) {
 
     @Value("\${jms.queue.destination}")
-    lateinit var destinationQueue: String
+    lateinit var destination: String
 
     fun send(tweet: TweetMsg) {
-        jmsTemplate.convertAndSend(destinationQueue, tweet)
+        jmsTemplate.convertAndSend(destination, tweet)
     }
 
 }
