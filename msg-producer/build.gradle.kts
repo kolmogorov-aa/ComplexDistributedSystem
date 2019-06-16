@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.1.5.RELEASE"
-    id("io.spring.dependency-management") version "1.0.7.RELEASE"
-    kotlin("jvm") version "1.2.71"
-    kotlin("plugin.spring") version "1.2.71"
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    kotlin("jvm")
+    kotlin("plugin.spring")
 }
 
 group = "ru.ulmc.school"

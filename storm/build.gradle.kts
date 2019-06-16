@@ -19,6 +19,8 @@ tasks.withType<KotlinCompile> {
     }
 }
 dependencies {
+    //api("org.apache.storm:storm-core:2.0.0")
+    implementation("org.apache.storm:storm-core:2.0.0")
     implementation(kotlin("stdlib-jdk8"))
 }
 val compileKotlin: KotlinCompile by tasks

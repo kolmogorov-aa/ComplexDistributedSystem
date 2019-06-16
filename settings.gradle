@@ -1,3 +1,6 @@
 rootProject.name = 'ComplexSystem'
 
-include 'msg-producer', 'msg-consumer', 'api'
+include 'msg-producer',
+        'msg-consumer',
+        'api',
+        'storm'
