@@ -1,0 +1,3 @@
+rootProject.name = 'ComplexSystem'
+
+include 'msg-producer', 'msg-consumer', 'api'

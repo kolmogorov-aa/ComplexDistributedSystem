@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns="urn:activemq" xsi:schemaLocation="urn:activemq/schema/artemis-server.xsd">
+    <jms xmlns="urn:activemq:jms">
+        <!--the queue used by the example -->
+        <queue name="trump-tweets"/>
+    </jms>
+
+    <core xmlns="urn:activemq:core">
+
+        <persistence-enabled>false</persistence-enabled>
+        <journal-type>NIO</journal-type>
+
+        <!-- Acceptors -->
+        <acceptors>
+            <acceptor name="netty">tcp://localhost:61616</acceptor>
+        </acceptors>
+        <connectors>
+            <connector name="netty">tcp://localhost:61617</connector>
+        </connectors>
+
+        <!-- Other config -->
+
+        <security-settings>
+            <!--security for example queue -->
+            <security-setting match="#">
+                <permission type="createDurableQueue" roles="guest"/>
+                <permission type="deleteDurableQueue" roles="guest"/>
+                <permission type="createNonDurableQueue" roles="guest"/>
+                <permission type="deleteNonDurableQueue" roles="guest"/>
+                <permission type="consume" roles="guest"/>
+                <permission type="send" roles="guest"/>
+            </security-setting>
+        </security-settings>
+
+    </core>
+</configuration>
