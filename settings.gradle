@@ -4,3 +4,4 @@ include 'msg-producer',
         'msg-consumer',
         'api',
         'storm'
+include 'stormdemo'

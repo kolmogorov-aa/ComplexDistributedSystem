@@ -142,14 +142,14 @@ public class ArtemisSpout extends BaseRichSpout implements MessageListener {
                     " secs. This could lead to a message replay flood!");
         }
         try {
-            ConnectionFactory cf = jmsContextHolder.getConnectionFactory();
-            Destination dest = jmsContextHolder.getDestination();
-            this.connection = cf.createConnection();
-            this.session = connection.createSession(true, Session.CLIENT_ACKNOWLEDGE);
-            MessageConsumer consumer = session.createConsumer(dest);
-            consumer.setMessageListener(this);
-            this.connection.start();
-
+            /*
+             * TODO:
+             *   1. Получить фабрику подключений к JMS
+             *   2. Создать подключение
+             *   3. Создать потребителя
+             *   4. Назначить слушателя
+             *   5. Подключиться
+             */
         } catch (Exception e) {
             log.warn("Error creating JMS connection.", e);
         }
