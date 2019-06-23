@@ -3,5 +3,7 @@ rootProject.name = 'ComplexSystem'
 include 'msg-producer',
         'msg-consumer',
         'api',
-        'storm'
+        'storm',
+        'model', 
+        'frontend'
 include 'stormdemo'
