@@ -10,7 +10,6 @@ import javax.persistence.Table
 @Entity
 @Table(name = "T_TWEETS")
 data class TweetModel(
-
         @field:Id
         @field:Column(name = "id")
         val id: String = UUID.randomUUID().toString(),

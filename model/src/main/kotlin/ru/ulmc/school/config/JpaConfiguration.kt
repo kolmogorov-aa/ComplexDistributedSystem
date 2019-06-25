@@ -12,8 +12,9 @@ import javax.sql.DataSource
 
 @Configuration
 open class JpaConfiguration {
+/*
     @Bean
-    open fun sessionFactory(dataSource: DataSource): SessionFactory? {
+    open fun sessionFactory(dataSource: DataSource): LocalSessionFactoryBean {
         val factoryBean = LocalSessionFactoryBean()
         factoryBean.setDataSource(dataSource)
         factoryBean.setPackagesToScan("ru.ulmc.school")
@@ -22,7 +23,7 @@ open class JpaConfiguration {
         property.setProperty("hibernate.show_sql", "true")
         property.setProperty("hibernate.hbm2ddl", "validate")
         factoryBean.hibernateProperties = property
-        return factoryBean.getObject()
+        return factoryBean
     }
 
     @Bean
@@ -37,13 +38,12 @@ open class JpaConfiguration {
     }
 
     @Bean
-    open fun transactionManager(dataSource: DataSource,
-                                sessionFactory: SessionFactory): HibernateTransactionManager {
+    open fun transactionManager(dataSource: DataSource): HibernateTransactionManager {
         val tr = HibernateTransactionManager()
         tr.dataSource = dataSource
-        tr.sessionFactory = sessionFactory
+        tr.sessionFactory = sessionFactory(dataSource).`object`
         return tr
     }
-
+*/
 
 }

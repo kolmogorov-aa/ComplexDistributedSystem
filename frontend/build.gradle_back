@@ -34,7 +34,7 @@ tasks.withType(JavaCompile) {
 vaadin {
     version '13.+'
     productionMode = false
-    vaadin.submitStatistics=false
+    vaadin.submitStatistics = false
 }
 vaadinAssembleClient {
     //webappDir 'src/main/resources/static/frontend'
@@ -57,12 +57,17 @@ dependencyManagement {
 }
 
 dependencies {
-    project (":model")
+    implementation(project(":api"))
+    implementation(project(":model"))
 
+    implementation("org.springframework.boot:spring-boot-starter-artemis")
+    implementation("org.messaginghub:pooled-jms")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation "com.vaadin:vaadin"
     implementation "com.vaadin:vaadin-spring"
 //    implementation group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
-  //  implementation group: 'org.hibernate', name: 'hibernate-validator', version: '+'
+    //  implementation group: 'org.hibernate', name: 'hibernate-validator', version: '+'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.37'
