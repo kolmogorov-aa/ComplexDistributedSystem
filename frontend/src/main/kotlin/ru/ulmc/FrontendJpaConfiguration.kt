@@ -1,4 +1,4 @@
-package ru.ulmc.school
+package ru.ulmc
 
 import com.vaadin.flow.component.html.H2
 import org.springframework.beans.factory.annotation.Qualifier

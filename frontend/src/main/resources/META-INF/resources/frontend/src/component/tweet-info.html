@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/vaadin-lumo-styles/color.html">
+<link rel="import" href="../../bower_components/vaadin-lumo-styles/typography.html">
+
+<dom-module id="tweet-info">
+    <template>
+        <style>
+            .tweet-info__title {
+                color: var(--lumo-contrast-70pct);
+            }
+
+            .tweet-info__line {
+                max-width: 600px;
+            }
+        </style>
+        <div>
+            <div class='tweet-info__line'>
+                <span class="tweet-info__title">Date: </span>[[date]]</div>
+                <span class="tweet-info__title">Text: </span>[[message]]
+            </div>
+        </div>
+    </template>
+
+    <script>
+        class Company extends Polymer.Element {
+            static get is() {
+                return 'tweet-info';
+            }
+        }
+
+        window.customElements.define(Company.is, Company);
+    </script>
+</dom-module>

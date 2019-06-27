@@ -1,4 +1,4 @@
-package ru.ulmc.school.events
+package ru.ulmc.events
 
 import org.springframework.context.ApplicationEvent
 import ru.ulmc.school.api.entity.TweetMsg

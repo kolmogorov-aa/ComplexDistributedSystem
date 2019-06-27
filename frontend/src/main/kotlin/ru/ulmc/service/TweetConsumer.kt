@@ -1,4 +1,4 @@
-package ru.ulmc.school.msgproducer.service
+package ru.ulmc.service
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -8,7 +8,7 @@ import org.springframework.jms.annotation.JmsListener
 import org.springframework.jms.core.JmsTemplate
 import org.springframework.stereotype.Component
 import ru.ulmc.school.api.entity.TweetMsg
-import ru.ulmc.school.events.TweetEvent
+import ru.ulmc.events.TweetEvent
 
 
 @Component

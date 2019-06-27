@@ -3,6 +3,7 @@ package ru.ulmc.ui.views;
 import com.google.common.collect.EvictingQueue;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.BeforeEnterEvent;
@@ -13,24 +14,27 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.EventListener;
 import ru.ulmc.school.api.entity.TweetMsg;
-import ru.ulmc.school.events.TweetEvent;
+import ru.ulmc.events.TweetEvent;
+import ru.ulmc.ui.MainView;
 
 import java.util.Queue;
 
-@Route("tweets")
+@Route(value ="tweets", layout = MainView.class)
+@HtmlImport("frontend://src/component/tweet-info.html")
 public class TweetsView extends Div implements BeforeEnterObserver, ApplicationListener<TweetEvent> {
 
-    private final ApplicationEventMulticaster multicaster;
     private Grid<TweetMsg> grid;
     private UI ui;
     private Queue<TweetMsg> tweets = EvictingQueue.create(10);
 
     public TweetsView(@Qualifier("tweetsMulticaster") ApplicationEventMulticaster multicaster) {
-        this.multicaster = multicaster;
         multicaster.addApplicationListener(this);
         grid = new Grid<>();
-        grid.addColumn(TweetMsg::getDate);
-        grid.addColumn(TweetMsg::getText);
+        grid.addColumn(TweetMsg::getDate)
+        .setWidth("150px")
+        .setFlexGrow(1);
+        grid.addColumn(TweetMsg::getText)
+        .setFlexGrow(5);
         add(grid);
     }
 
