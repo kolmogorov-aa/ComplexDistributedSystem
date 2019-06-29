@@ -1,17 +1,15 @@
 package ru.ulmc.school.msgproducer
 
+import org.apache.activemq.artemis.api.core.TransportConfiguration
+import org.apache.activemq.artemis.core.remoting.impl.netty.NettyAcceptorFactory
+import org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.jms.artemis.ArtemisConfigurationCustomizer
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Configuration
 import org.springframework.jms.annotation.EnableJms
 import org.springframework.scheduling.annotation.EnableAsync
 import org.springframework.scheduling.annotation.EnableScheduling
-import org.apache.activemq.artemis.core.remoting.impl.netty.NettyAcceptorFactory
-import org.apache.activemq.artemis.api.core.TransportConfiguration
-import org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
-import org.springframework.boot.SpringBootConfiguration
-import org.springframework.boot.autoconfigure.jms.artemis.ArtemisConfigurationCustomizer
-import org.springframework.context.annotation.Configuration
-
 
 @EnableAsync
 @EnableScheduling

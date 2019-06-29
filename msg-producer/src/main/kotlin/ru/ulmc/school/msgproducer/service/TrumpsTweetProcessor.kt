@@ -4,7 +4,6 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.ClassPathResource
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Component
@@ -57,7 +56,7 @@ class TrumpsTweetProcessor(private val tweetPublisher: TweetPublisher) {
             msgs.forEach {
                 log.info("Sending tweet: {}", it)
                 tweetPublisher.send(it)
-                TimeUnit.MILLISECONDS.sleep(abs(1000 + 2000 * ThreadLocalRandom.current().nextDouble()).toLong())
+                TimeUnit.MILLISECONDS.sleep(abs(200 + 200 * ThreadLocalRandom.current().nextDouble()).toLong())
             }
         }
     }

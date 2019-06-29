@@ -1,6 +1,5 @@
 package ru.ulmc.school.storm.spouts;
 
-import org.apache.activemq.artemis.jms.client.ActiveMQConnection;
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -8,36 +7,19 @@ import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.utils.Utils;
+import org.slf4j.Logger;
+import ru.ulmc.school.storm.jms.*;
 
+import javax.jms.*;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-
-import lombok.extern.slf4j.Slf4j;
-import ru.ulmc.school.storm.jms.DefaultConverter;
-import ru.ulmc.school.storm.jms.DefaultJmsHolder;
-import ru.ulmc.school.storm.jms.JmsContextHolder;
-import ru.ulmc.school.storm.jms.JmsMessageId;
-import ru.ulmc.school.storm.jms.JmsToTupleConverter;
-
 import static ru.ulmc.school.storm.Names.Fields.TWEET_FIELD;
 
-@Slf4j
 public class ArtemisSpout extends BaseRichSpout implements MessageListener {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(ArtemisSpout.class);
     private final Object recoveryMutex = BigDecimal.valueOf(Long.parseLong("100000000"));
     private final BlockingQueue<Message> queue = new LinkedBlockingQueue<>();
     private final TreeSet<JmsMessageId> toCommit = new TreeSet<>();

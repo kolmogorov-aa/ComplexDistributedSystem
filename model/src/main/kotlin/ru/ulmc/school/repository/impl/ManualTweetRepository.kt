@@ -1,14 +1,17 @@
 package ru.ulmc.school.repository.impl
 
+import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 import ru.ulmc.school.model.TweetModel
 import ru.ulmc.school.repository.TweetRepository
 import javax.persistence.EntityManager
+import javax.persistence.PersistenceContext
 
 //@Repository
+@Component
 open class ManualTweetRepository : TweetRepository {
 
-    // @PersistenceContext
+    @PersistenceContext
     lateinit var entityManager: EntityManager
 
     @Transactional

@@ -50,6 +50,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.apache.tomcat.embed:tomcat-embed-core:8.5.37")
     implementation("com.h2database:h2:+")
+    testImplementation ("org.springframework.boot:spring-boot-starter-test:2.1.6.RELEASE")
 
 }
 

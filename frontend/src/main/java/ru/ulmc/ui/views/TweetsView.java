@@ -13,13 +13,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.EventListener;
-import ru.ulmc.school.api.entity.TweetMsg;
 import ru.ulmc.events.TweetEvent;
+import ru.ulmc.school.api.entity.TweetMsg;
 import ru.ulmc.ui.MainView;
 
 import java.util.Queue;
 
-@Route(value ="tweets", layout = MainView.class)
+@Route(value = "tweets", layout = MainView.class)
 @HtmlImport("frontend://src/component/tweet-info.html")
 public class TweetsView extends Div implements BeforeEnterObserver, ApplicationListener<TweetEvent> {
 
@@ -31,10 +31,10 @@ public class TweetsView extends Div implements BeforeEnterObserver, ApplicationL
         multicaster.addApplicationListener(this);
         grid = new Grid<>();
         grid.addColumn(TweetMsg::getDate)
-        .setWidth("150px")
-        .setFlexGrow(1);
+                .setWidth("150px")
+                .setFlexGrow(1);
         grid.addColumn(TweetMsg::getText)
-        .setFlexGrow(5);
+                .setFlexGrow(10);
         add(grid);
     }
 

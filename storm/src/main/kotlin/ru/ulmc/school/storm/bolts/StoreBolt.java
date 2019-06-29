@@ -5,21 +5,16 @@ import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichBolt;
-import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
-import org.apache.storm.tuple.Values;
+import org.slf4j.Logger;
 
 import java.util.Map;
 
-import lombok.extern.slf4j.Slf4j;
-import ru.ulmc.school.api.entity.TweetMsg;
-
 import static ru.ulmc.school.storm.Names.Fields.STORE_FIELD;
-import static ru.ulmc.school.storm.Names.Fields.TWEET_FIELD;
 
-@Slf4j
 public class StoreBolt extends BaseRichBolt {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(StoreBolt.class);
     private OutputCollector collector;
 
     private static boolean isTickTuple(Tuple tuple) {

@@ -1,13 +1,11 @@
 package ru.ulmc.school.storm.jms;
 
 import org.apache.storm.tuple.Values;
-
-import java.io.Serializable;
+import ru.ulmc.school.api.entity.TweetMsg;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
-
-import ru.ulmc.school.api.entity.TweetMsg;
+import java.io.Serializable;
 
 public class DefaultConverter implements JmsToTupleConverter, Serializable {
 

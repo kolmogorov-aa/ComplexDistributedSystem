@@ -5,7 +5,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.context.ApplicationListener
 import org.springframework.stereotype.Component
 import ru.ulmc.school.msgproducer.service.TrumpsTweetProcessor
-import ru.ulmc.school.msgproducer.service.TweetProcessor
 
 
 @Component
@@ -19,7 +18,6 @@ class ApplicationStartup : ApplicationListener<ApplicationReadyEvent> {
      */
     override fun onApplicationEvent(event: ApplicationReadyEvent) {
         processor.start()
-        return
     }
 
 } // class

@@ -19,7 +19,6 @@ tasks.withType<KotlinCompile> {
     }
 }
 dependencies {
-
     implementation ("org.springframework.boot:spring-boot-starter-data-jpa:2.1.6.RELEASE")
     implementation(kotlin("stdlib-jdk8"))
 }

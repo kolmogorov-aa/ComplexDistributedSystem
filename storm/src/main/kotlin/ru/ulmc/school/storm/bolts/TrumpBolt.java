@@ -8,19 +8,18 @@ import org.apache.storm.topology.base.BaseRichBolt;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
-
-import java.util.Map;
-
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import ru.ulmc.school.api.entity.TweetMsg;
 import ru.ulmc.school.storm.logic.TrumpTweetLogicService;
+
+import java.util.Map;
 
 import static ru.ulmc.school.storm.Names.Fields.STORE_FIELD;
 import static ru.ulmc.school.storm.Names.Fields.TWEET_FIELD;
 
-@Slf4j
 public class TrumpBolt extends BaseRichBolt {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(TrumpBolt.class);
     private OutputCollector collector;
     private TrumpTweetLogicService service = new TrumpTweetLogicService();
 

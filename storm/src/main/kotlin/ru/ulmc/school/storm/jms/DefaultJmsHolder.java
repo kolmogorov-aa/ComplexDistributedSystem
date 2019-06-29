@@ -1,11 +1,10 @@
 package ru.ulmc.school.storm.jms;
 
-import java.io.Serializable;
-
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import java.io.Serializable;
 
 public class DefaultJmsHolder implements JmsContextHolder, Serializable {
     private final Destination queue;
